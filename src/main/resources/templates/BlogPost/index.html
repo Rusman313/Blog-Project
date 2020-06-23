@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <title>Rafeena's Blog Site</title>
 </head>
 
@@ -26,14 +27,14 @@
                     </div><!-- End of .card-->
                 </div><!-- End of .col-sm -->
             </div><!-- End of Posts loop-->
-            <a href="/BlogPost/new">
+            <a href="/blogposts/new">
                 <button class="btn btn-primary">Submit A New Blog Post</button>
             </a>
         </div><!-- end of 1st Row-->
 
         <div class="row">
             <p>Use the form below to submit a blog post:</p>
-            <form action="#" th:action="@{/BlogPost}" th:object="${blogPost}" method="POST">
+            <form action="#" th:action="@{/blogposts}" th:object="${blogPost}" method="POST">
                 <label for="blogTitle">Title:</label>
                 <input type="text" name="blogTitle" th:field="*{title}" />
 
