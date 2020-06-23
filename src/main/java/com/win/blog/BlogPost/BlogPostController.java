@@ -11,29 +11,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BlogPostController {
+
     @Autowired
     private BlogPostRepository blogPostRepository;
 
     private static List<BlogPost> posts = new ArrayList<>();
 
     @GetMapping(value = "/")
-    public String index(BlogPost blogPost, Model model){
+    public String index(BlogPost blogPost, Model model) {
         model.addAttribute("posts", posts);
         return "BlogPost/index";
-
     }
 
     private BlogPost blogPost;
 
-    @GetMapping(value = "/blogPosts/new")
-    public String newBlog(BlogPost blogPost){
+    @GetMapping(value = "/blogposts/new")
+    public String newBlog(BlogPost blogPost) {
         return "BlogPost/new";
     }
 
-    @PostMapping(value = "/blogPosts")
-    public String addNewBlogPost(BlogPost blogPost, Model model){
+
+    @PostMapping(value = "/blogposts")
+    public String addNewBlogPost(BlogPost blogPost, Model model) {
         blogPostRepository.save(new BlogPost(blogPost.getTitle(), blogPost.getAuthor(), blogPost.getBlogEntry()));
+        
+        // Add new blog posts as they're created to our posts list for indexing
         posts.add(blogPost);
+
+        // Add attributes to our model so we can show them to the user on the results page
         model.addAttribute("title", blogPost.getTitle());
         model.addAttribute("author", blogPost.getAuthor());
         model.addAttribute("blogEntry", blogPost.getBlogEntry());
