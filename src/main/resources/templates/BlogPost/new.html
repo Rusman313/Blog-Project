@@ -7,33 +7,11 @@
     <link rel="stylesheet" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
     <title>Rafeena's Blog Site</title>
 </head>
-
 <body>
     <div class="container">
         <div class="row">
-            <h1>Welcome to my Blog!</h1>
-            <h3>Check out our blogs!</h3>
-
-            <div th:each="blog:${posts}">
-                <div class="col-sm">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${blog.title}"></h5>
-                            <p th:text="${blog.author}"></p>
-                            <p th:text="${blog.blogEntry}"></p>
-                        </div>
-                        <div class="card-footer"></div>
-                    </div><!-- End of .card-->
-                </div><!-- End of .col-sm -->
-            </div><!-- End of Posts loop-->
-            <a href="/BlogPost/new">
-                <button class="btn btn-primary">Submit A New Blog Post</button>
-            </a>
-        </div><!-- end of 1st Row-->
-
-        <div class="row">
             <p>Use the form below to submit a blog post:</p>
-            <form action="#" th:action="@{/BlogPost}" th:object="${blogPost}" method="POST">
+            <form action="#" th:action="@{/}" th:object="${blogPost}" method="POST">
                 <label for="blogTitle">Title:</label>
                 <input type="text" name="blogTitle" th:field="*{title}" />
 
@@ -45,7 +23,7 @@
 
                 <button type="submit">Submit Your Blog Entry</button>
             </form>
-        </div><!--End of 2nd Row-->
+        </div><!--End of Row-->
     </div><!--End of Container-->
 
 
