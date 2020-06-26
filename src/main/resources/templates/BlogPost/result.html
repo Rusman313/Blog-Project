@@ -6,11 +6,12 @@
     <title>Rafeena's Blog Site</title>
 	
     <!-- <link rel="stylesheet" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css" />-->
-   <div th:replace="/fragments/styling :: head-style"></div>
-  </head>
-  <body>
-    <div class="container">
-		<div th:replace="/fragments/navbar :: navbar"></div>
+  
+	<div th:replace="/fragments/styling :: head-style"></div>
+</head>
+<body>	
+	<div th:replace="/fragments/navbar :: navbar"></div>
+	<div class="container">
 	
 
 		<div class="row">
@@ -19,9 +20,9 @@
 				<p>Thank you for your submission!</p>
 
 				<h4>Blog Post</h4>
-				<p th:text="${title}" />
-				<p th:text="${author}" />
-				<p th:text="${blogEntry}" />
+				<p th:text="${blogPost.title}" />
+				<p th:text="${blogPost.author}" />
+				<p th:text="${blogPost.blogEntry}" />
 			</div>
 		</div>
 
@@ -30,15 +31,18 @@
 				<a href="/">
 					<button class="btn btn-primary">Return Home</button>
 				</a>
+				<a href="#" th:href="@{/blogposts/{id}(id=${blogPost.id})}">
+					<button class="btn btn-light">Edit This Post</button>
+				</a>
+				
 				<a href="/blogposts/new">
 					<button class="btn btn-secondary">Create Another Blog Post</button>
 				</a>
+			
 			</div>
 		</div>
-    </div>
-	<!--<script src="webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="webjars/popper.js/2.0.2/umd/popper.min.js"></script>
-    <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>-->
-    <div th:replace="/fragments/styling :: body-links"></div>
-  </body>
+	</div>
+
+	<div th:replace="/fragments/styling :: body-links"></div>
+</body>
 </html>
