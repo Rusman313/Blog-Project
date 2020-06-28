@@ -1,7 +1,27 @@
 html{
-    background-color: #FFB6C1;
+  /*  background-color: #ff9999;*/
     padding: 0.5 rem;
 }
-.btn{
-    
+/*.row{
+    background-color: #ff9999;
+}*/
+body{
+    background-color: #ffb399;
+  
+}
+
+.navbar-brand{
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+  ;
+  }
+h1{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 75px;
+}
+h3{
+    font-family: 'Tangerine', cursive;
+    font-weight: 700; 
+    font-size: 60px;
 }
